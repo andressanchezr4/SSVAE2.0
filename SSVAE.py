@@ -445,32 +445,3 @@ class EarlyStoppingCustomized(tf.keras.callbacks.Callback):
       print('Epoch %05d: Detencion anticipada' % (self.stopped_epoch + 1))
       self.end_training = time.time()
 
-# epochs = 100
-# my_ssvae = SSVAE(trnX_L, trnX_U, trnY_L, batch_size)
-# my_callback = EarlyStoppingCustomized()
-# optimizer = keras.optimizers.Adam(learning_rate = 0.001)
-# my_ssvae.compile(optimizer=optimizer)
-# vae_history=my_ssvae.fit(train_gen, callbacks=my_callback,
-#           epochs=epochs, validation_data=test_gen, shuffle = True,
-#           )
-
-# # unconditional generation
-# u_beam_search_list=[]
-# for t in range(10000):
-#     smi=my_ssvae.sampling_unconditional()
-#     u_beam_search_list.append(smi)
-#     print(['unconditional', t, smi])
-
-# ## conditional generation (e.g. MolWt=250)
-# yid = 0
-# ytarget = 250.
-# ytarget_transform = (ytarget-DataPrepare.scaler_Y.mean_[yid])/np.sqrt(DataPrepare.scaler_Y.var_[yid])
-    
-# c_beam_search_list=[]
-# for t in range(10000):
-#     smi = my_ssvae.sampling_conditional(yid, ytarget_transform)
-#     c_beam_search_list.append(smi)
-#     print(['conditional', t, smi])
-
-# end1 = time.time()
-# print(((end1 - start1)/60)/60)
