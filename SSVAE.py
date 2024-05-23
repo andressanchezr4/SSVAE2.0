@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed May 22 22:07:44 2024
+Created on 2024
 
-@author: andres
+@author: andressanchezr4
 """
 
 import time
