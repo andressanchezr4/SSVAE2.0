@@ -51,7 +51,7 @@ my_ssvae.compile(optimizer=optimizer)
 vae_history = my_ssvae.fit(train_gen, callbacks=my_callback,
           epochs=epochs, validation_data=test_gen, shuffle = True)
 
-print(f'It took {((my_callback.end_training - my_callback.start_training)/60)/60} to train')
+print(f'It took {((my_callback.end_training - my_callback.start_training)/60)/60} h to train')
 
 # Save model Weigths
 # my_ssvae.save_weights('./ssvae_weights_310k.cpkt')
