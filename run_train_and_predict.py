@@ -19,7 +19,7 @@ from SSVAE import SSVAE, EarlyStoppingCustomized
 ####################
 
 # Columns --> 1st: SMILES, 2nd and on: Molecular Properties
-data_uri='./ZINC_310k.csv'
+data_uri='./data/ZINC_310k.csv'
 df = pd.read_csv(data_uri)
 
 # Preparing data
@@ -51,8 +51,10 @@ my_ssvae.compile(optimizer=optimizer)
 vae_history = my_ssvae.fit(train_gen, callbacks=my_callback,
           epochs=epochs, validation_data=test_gen, shuffle = True)
 
+print(f'It took {((my_callback.end_training - my_callback.start_training)/60)/60} to train')
+
 # Save model Weigths
-# my_ssvae.save_weights('./ssvae_tf2/ssvae_weights_310k.cpkt')
+# my_ssvae.save_weights('./ssvae_weights_310k.cpkt')
 
 ###################
 ### PREDICTIONS ###
@@ -60,7 +62,7 @@ vae_history = my_ssvae.fit(train_gen, callbacks=my_callback,
 
 # To load the weights we need a new instance of the SSVAE model 
 new_model = SSVAE(trnX_L, trnX_U, trnY_L, batch_size)
-new_model.load_weights('/home/andres/Desktop/ssvae_tf2/ssvae_weights_310k.cpkt')
+new_model.load_weights('./ssvae_weights_310k.cpkt')
 
 # unconditional generation
 u_beam_search_list=[]
@@ -79,5 +81,3 @@ for t in range(10000):
     smi = my_ssvae.sampling_conditional(yid, ytarget_transform)
     c_beam_search_list.append(smi)
     print(f'Conditional generation, molecule {t}: {smi}')
-
-print(((my_callback.end_training  - my_callback.start_training)/60)/60)
