@@ -8,6 +8,10 @@ This is the updated code for Tensorflow 2.0+ for the model described in the pape
 - The way batches are generated is up to date and implemented in the full_preprocessing.py. No need to directly load numpy arrays to the model.
 - The stop condition for the training is now defined as its own class.
 
-
+## Requirements
+- Tensorflow 2.0+
+- Scikit-learn
+- RDKit
+- Pandas/NumPy
 
 
