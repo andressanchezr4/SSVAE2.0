@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 from tensorflow import keras
 import os
-os.chdir('/home/andres/Desktop/ssvae_tf2')
+
 from full_preprocessing import DataPrepare, BatchGenerator
 from SSVAE import SSVAE, EarlyStoppingCustomized
 
