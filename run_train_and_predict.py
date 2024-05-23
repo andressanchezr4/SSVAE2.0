@@ -52,7 +52,7 @@ vae_history = my_ssvae.fit(train_gen, callbacks=my_callback,
           epochs=epochs, validation_data=test_gen, shuffle = True)
 
 # Save model Weigths
-# my_ssvae.save_weights('/home/andres/Desktop/ssvae_tf2/ssvae_weights_310k.cpkt')
+# my_ssvae.save_weights('./ssvae_tf2/ssvae_weights_310k.cpkt')
 
 ###################
 ### PREDICTIONS ###
