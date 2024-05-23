@@ -27,7 +27,6 @@ int_to_char = {i: c for i, c in enumerate(char_set)}
 char_to_int = dict((c, i) for i, c in enumerate(char_set))
 
 class DataPrepare(object):
-    
     def __init__(self, data_df, train_perc = 0.9, val_perc = 0.05, test_perc = 0.05, unsupervised_perc = 0.5):
         self.df = data_df
         self.train_perc = int(train_perc*self.df.shape[0])
@@ -36,7 +35,6 @@ class DataPrepare(object):
         self.unsup_perc = unsupervised_perc
         
     def vectorize(self, list_input, char_set):
-
         one_hot = np.zeros(
             (list_input.shape[0], list_input.shape[1]+4, len(char_set)), dtype=np.int32)
 
@@ -52,7 +50,6 @@ class DataPrepare(object):
 
 
     def smiles_to_seq(self, smiles, char_set):
-
         list_seq = []
         for s in smiles:
             seq = []
