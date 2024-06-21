@@ -66,7 +66,7 @@ new_model.load_weights('./ssvae_weights_310k.cpkt')
 
 # unconditional generation
 u_beam_search_list=[]
-for t in range(10000):
+for t in range(1000):
     smi=my_ssvae.sampling_unconditional()
     u_beam_search_list.append(smi)
     print(f'Unconditional generation, molecule {t}: {smi}')
