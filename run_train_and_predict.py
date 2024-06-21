@@ -11,7 +11,7 @@ import numpy as np
 from tensorflow import keras
 import os
 
-from full_preprocessing import DataPrepare, BatchGenerator
+from full_preprocessing import DataPrepare, BatchGenerator, calculate_descriptors
 from SSVAE import SSVAE, EarlyStoppingCustomized
 
 ####################
@@ -77,7 +77,16 @@ ytarget = 250. # the value of such property you want your molecules to have
 ytarget_transform = (ytarget-dataset_preparator.scaler_Y.mean_[yid])/np.sqrt(dataset_preparator.scaler_Y.var_[yid])
     
 c_beam_search_list=[]
-for t in range(10000):
-    smi = my_ssvae.sampling_conditional(yid, ytarget_transform)
-    c_beam_search_list.append(smi)
+c_beam_search_df= pd.DataFrame(columns = ['smiles', 'molwt', 'tpsa', 'logp', 'ha', 'hd'])
+for t in range(1000):
+          
+    smi = new_model.sampling_conditional(yid, ytarget_transform)
     print(f'Conditional generation, molecule {t}: {smi}')
+          
+    try:
+        descriptors = calculate_descriptors(smi)
+    except:
+        print(f'failed for smiles: {smi}')
+        continue
+              
+    c_beam_search_df.loc[len(c_beam_search_df)] = [smi] + [i for i in descriptors.values()]
