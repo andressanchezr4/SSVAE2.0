@@ -158,4 +158,20 @@ class BatchGenerator(Sequence):
         inputs = [batch_x_L, batch_xs_L, batch_y_L, batch_x_U, batch_xs_U]
 
         return inputs, "outputs_dummy"
-    
+
+def smi_descriptors(smiles):
+
+    mol = Chem.MolFromSmiles(smiles)
+
+    descriptors = {
+        'MolWt': Descriptors.MolWt,
+        'TPSA': Descriptors.TPSA,
+        'LogP': Descriptors.MolLogP,
+        'NumHAcceptors': Descriptors.NumHAcceptors,
+        'NumHDonors': Descriptors.NumHDonors
+    }
+
+    results = {desc: func(mol) for desc, func in descriptors.items()}
+
+    return results
+          
