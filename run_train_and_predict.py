@@ -11,7 +11,7 @@ import numpy as np
 from tensorflow import keras
 import os
 
-from full_preprocessing import DataPrepare, BatchGenerator, calculate_descriptors
+from full_preprocessing import DataPrepare, BatchGenerator, smi_descriptors
 from SSVAE import SSVAE, EarlyStoppingCustomized
 
 ####################
@@ -84,7 +84,7 @@ for t in range(1000):
     print(f'Conditional generation, molecule {t}: {smi}')
           
     try:
-        descriptors = calculate_descriptors(smi)
+        descriptors = smi_descriptors(smi)
     except:
         print(f'failed for smiles: {smi}')
         continue
