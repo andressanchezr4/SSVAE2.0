@@ -75,8 +75,7 @@ for t in range(1000):
 yid = 0 # the index of the property you want to condition
 ytarget = 250. # the value of such property you want your molecules to have
 ytarget_transform = (ytarget-dataset_preparator.scaler_Y.mean_[yid])/np.sqrt(dataset_preparator.scaler_Y.var_[yid])
-    
-c_beam_search_list=[]
+
 c_beam_search_df= pd.DataFrame(columns = ['smiles', 'molwt', 'tpsa', 'logp', 'ha', 'hd'])
 for t in range(1000):
           
