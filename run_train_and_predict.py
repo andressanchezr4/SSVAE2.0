@@ -80,7 +80,7 @@ c_beam_search_list=[]
 c_beam_search_df= pd.DataFrame(columns = ['smiles', 'molwt', 'tpsa', 'logp', 'ha', 'hd'])
 for t in range(1000):
           
-    smi = new_model.sampling_conditional(yid, ytarget_transform)
+    smi = my_ssvae.sampling_conditional(yid, ytarget_transform)
     print(f'Conditional generation, molecule {t}: {smi}')
           
     try:
