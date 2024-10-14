@@ -129,8 +129,8 @@ class DataPrepare(object):
         tstXs = Xs[-self.test_perc:].astype('float32')
         tstY = Y[-self.test_perc:].astype('float32')
         
-        return (trnX_L, trnX_L, trnXs_L, trnX_U, trnXs_U, trnY_L), \
-               (valX_L, valX_L, valXs_L, valX_U, valXs_U, valY_L), \
+        return (trnX_L, trnXs_L, trnX_U, trnXs_U, trnY_L), \
+               (valX_L, valXs_L, valX_U, valXs_U, valY_L), \
                (tstX, tstXs, tstY)
                
 class BatchGenerator(Sequence):
