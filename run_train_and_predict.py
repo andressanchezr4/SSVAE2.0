@@ -27,8 +27,8 @@ dataset_preparator = DataPrepare(df)
 
 trn_tensors, val_tensors, tst_tensors = dataset_preparator.Smiles2Tensor()
 
-trnX_L, trnX_L, trnXs_L, trnX_U, trnXs_U, trnY_L = trn_tensors
-valX_L, valX_L, valXs_L, valX_U, valXs_U, valY_L = val_tensors
+trnX_L, trnXs_L, trnX_U, trnXs_U, trnY_L = trn_tensors
+valX_L, valXs_L, valX_U, valXs_U, valY_L = val_tensors
 tstX, tstXs, tstY = tst_tensors
 
 # Batch generation
