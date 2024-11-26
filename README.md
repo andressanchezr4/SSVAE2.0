@@ -1,5 +1,5 @@
 # SSVAE2.0
-SSVAE is a Generative Model for molecular design, that enables the generation of new molecules according to desired physicochemical properties.
+SSVAE is a Generative Model for molecular design that enables the generation of new molecules according to desired physicochemical properties.
 
 ### SemiSupervised Variational Autoencoder updated to Tensorflow 2.0+
 
