@@ -13,6 +13,7 @@ from sklearn.preprocessing import StandardScaler
 from numpy.random import seed
 from tensorflow.keras.utils import Sequence
 import pandas as pd
+from rdkit.Chem import Descriptors
 
 seed(99)
 tf.random.set_seed(1234)
